@@ -10,6 +10,7 @@ import (
 	"go-blockchain/internal/api/controllers"
 	"go-blockchain/internal/api/server"
 	"go-blockchain/internal/common/log"
+	"go-blockchain/internal/services"
 )
 
 // Injectors from wire.go:
@@ -17,7 +18,9 @@ import (
 func InitApp() (App, error) {
 	sugaredLogger := log.SugaredLogger()
 	healthController := controllers.NewHealthController(sugaredLogger)
-	routerConfig := server.NewRouter(healthController)
+	blockServiceImpl := services.NewBlockServiceImpl(sugaredLogger)
+	blockController := controllers.NewBlockController(blockServiceImpl, sugaredLogger)
+	routerConfig := server.NewRouter(healthController, blockController)
 	serverServer := server.NewServer(sugaredLogger, routerConfig)
 	app := NewApp(serverServer)
 	return app, nil

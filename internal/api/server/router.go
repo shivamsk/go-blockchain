@@ -14,15 +14,18 @@ import (
 type RouterConfig struct {
 	router           *gin.Engine
 	healthController *controllers.HealthController
+	blockController  *controllers.BlockController
 }
 
 func NewRouter(
 	healthController *controllers.HealthController,
+	blockController *controllers.BlockController,
 ) *RouterConfig {
 
 	fmt.Println("NewRouter")
 	return &RouterConfig{
 		healthController: healthController,
+		blockController:  blockController,
 	}
 }
 
@@ -47,5 +50,13 @@ func (r *RouterConfig) addRoutes() *gin.Engine {
 
 	router.GET("/go-blockchain/health", health.Status)
 
+	addBlockRoutes(router, r)
+
 	return router
+}
+
+func addBlockRoutes(router *gin.Engine, r *RouterConfig) {
+	v1 := router.Group("/go-blockchain/api/v1")
+	v1.POST("/blocks", r.blockController.CreateBlock)
+	v1.GET("/blocks", r.blockController.GetBlocks)
 }
