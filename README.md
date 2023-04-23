@@ -4,7 +4,7 @@
 <br />
 <div align="center">
 
-<h3 align="center">Go Blockchain</h3>
+<h1 align="center">Go Blockchain</h1>
 
   <p align="center">
     Code your own simple Blockchain in Go
@@ -105,14 +105,14 @@ Install the following globally :
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
-<!-- LICENSE -->
+<!-- LICENSE 
 ## License
 
 Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
+-->
 
 <!-- CONTACT -->
 ## Contact
@@ -132,8 +132,7 @@ Project Link: [https://github.com/shivamsk/go-blockchain](https://github.com/shi
 ## Acknowledgments
 
 * Thanks to [Coral Health](https://mycoralhealth.medium.com/code-your-own-blockchain-in-less-than-200-lines-of-go-e296282bcffc)
-* []()
-* []()
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
